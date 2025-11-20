@@ -1,0 +1,34 @@
+{
+	"users": [
+		{
+			"id": "7995a9ff-3869-4d77-9db5-53e2dd3bc63a",
+			"username": "Bueno",
+			"email": "bueno@email.com",
+			"password": "$2b$08$92g79UvGPh.JO3VUTDWyvu01armgCOqyE19LEQaB1ymxFp7sVA7K."
+		},
+		{
+			"id": "7ef4e726-9041-4aaa-945f-a5921895c29e",
+			"username": "Rafael",
+			"email": "rafael@email.com",
+			"password": "$2b$08$lYMJPSmhbTxgGyxqT0IbxO7g8DPcCrdrVJOI65icTlHFvErqnMIOS"
+		}
+	],
+	"photos": [
+		{
+			"id": 2,
+			"user_id": "7995a9ff-3869-4d77-9db5-53e2dd3bc63a",
+			"image": "Link do Gato",
+			"dog_name": "Gorda",
+			"dog_age": 2,
+			"dog_weight": 10,
+			"comments": [
+				{
+					"comment_id": "5182deb4-c95b-4a22-8353-b2ff949944bc",
+					"comment_user_id": "7ef4e726-9041-4aaa-945f-a5921895c29e",
+					"username": "Rafael",
+					"content": "Que Legal"
+				}
+			]
+		}
+	]
+}
