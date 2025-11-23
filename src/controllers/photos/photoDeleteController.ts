@@ -1,5 +1,3 @@
-// controllers/photoDeleteController.ts
-
 import { readData, writeDataBulk } from "../../utils/databaseManager";
 import { verifyToken } from "../../utils/jwtManager";
 
@@ -25,10 +23,8 @@ export default async function photoDeleteController(req: any, res: any) {
       return res.status(403).json({ message: "Não autorizado a deletar esta foto." });
     }
 
-    // Remove a foto do array
     photos.splice(photoIndex, 1);
 
-    // Salva o array de fotos atualizado
     await writeDataBulk("photos", photos);
 
     return res.status(200).json({ message: "Foto deletada com sucesso." });

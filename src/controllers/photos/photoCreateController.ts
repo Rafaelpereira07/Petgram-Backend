@@ -1,28 +1,26 @@
-// controllers/photoCreateController.ts
-
 import { getNextId, writeData } from "../../utils/databaseManager";
 import { verifyToken } from "../../utils/jwtManager";
 
 export default async function photoCreateController(req: any, res: any) {
   try {
     const { authorization } = req.headers;
-    const { image, dog_name, dog_age, dog_weight } = req.body;
+    const { image, animal_name, animal_age, animal_weight } = req.body;
 
-    if (!image || !dog_name || !dog_age || !dog_weight) {
+    if (!image || !animal_name || !animal_age || !animal_weight) {
       return res.status(400).json({ message: "Todos os campos da foto são obrigatórios." });
     }
 
     const token = authorization.split(" ")[1];
-    const decoded = verifyToken(token); // Contém id e username do usuário logado
+    const decoded = verifyToken(token);
 
     const newPhoto = {
       id: await getNextId("photos"),
       user_id: decoded.id,
       image,
-      dog_name,
-      dog_age: Number(dog_age),
-      dog_weight: Number(dog_weight),
-      comments: [], // Inicia com array de comentários vazio
+      animal_name,
+      animal_age: Number(animal_age),
+      animal_weight: Number(animal_weight),
+      comments: [], 
     };
 
     await writeData("photos", newPhoto);

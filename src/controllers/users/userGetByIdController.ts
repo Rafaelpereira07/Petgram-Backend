@@ -1,5 +1,3 @@
-// controllers/userGetByIdController.ts (AJUSTADO)
-
 import { readData } from "../../utils/databaseManager";
 
 export default async function userGetByIdController(req: any, res: any) {
@@ -12,7 +10,6 @@ export default async function userGetByIdController(req: any, res: any) {
       return res.status(404).json({ message: "Usuário não encontrado." });
     }
 
-    // Retorna apenas dados públicos
     const publicUserData = {
       id: user.id,
       username: user.username,

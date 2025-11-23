@@ -1,5 +1,3 @@
-// controllers/commentPostController.ts (AJUSTADO PARA A ROTA DO FRONTEND)
-
 import { readData, writeDataBulk } from "../../utils/databaseManager";
 import { verifyToken } from "../../utils/jwtManager";
 import { v4 as uuidv4 } from "uuid";
@@ -7,8 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 export default async function commentPostController(req: any, res: any) {
   try {
     const { authorization } = req.headers;
-    const photo_id = Number(req.params.id); // <--- PEGA O ID DA URL
-    const { comment } = req.body; // <--- SEU FRONTEND ENVIA { comment: "conteúdo" }
+    const photo_id = Number(req.params.id);
+    const { comment } = req.body;
 
     // Validação
     if (!photo_id || !comment) {
@@ -29,7 +27,7 @@ export default async function commentPostController(req: any, res: any) {
       comment_id: uuidv4(),
       comment_user_id: decoded.id,
       username: decoded.username,
-      content: comment, // <--- USA 'comment' do body
+      content: comment,
     };
 
     photos[photoIndex].comments.push(newComment);

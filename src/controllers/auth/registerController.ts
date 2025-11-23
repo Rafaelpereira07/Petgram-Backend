@@ -1,5 +1,3 @@
-// controllers/registerController.ts (AJUSTADO)
-
 import { readData, writeData } from "../../utils/databaseManager";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
@@ -15,7 +13,6 @@ export default async function registerController(req: any, res: any) {
 
   const users = await readData("users");
 
-  // Verifica se email ou username já existem
   const exists = users.find((user: any) => user.email === email || user.username === username);
 
   if (exists) {

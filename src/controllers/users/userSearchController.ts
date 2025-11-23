@@ -1,5 +1,3 @@
-// controllers/userSearchController.ts (AJUSTADO)
-
 import { readData } from "../../utils/databaseManager";
 
 export default async function userSearchController(req: any, res: any) {
@@ -7,14 +5,15 @@ export default async function userSearchController(req: any, res: any) {
     const { username } = req.query;
 
     if (!username) {
-        return res.status(400).json({ message: "O parâmetro 'username' é obrigatório para a busca." });
+      return res
+        .status(400)
+        .json({ message: "O parâmetro 'username' é obrigatório para a busca." });
     }
 
     const users = await readData("users");
 
     const query = String(username).toLowerCase();
     const filtered = users.filter((user: any) => {
-      // Busca parcial por username
       return user.username.toLowerCase().includes(query);
     });
 
@@ -22,7 +21,6 @@ export default async function userSearchController(req: any, res: any) {
       return res.status(404).json({ message: "Nenhum usuário encontrado." });
     }
 
-    // Evita retornar senha e email
     const sanitized = filtered.map(({ password, email, ...rest }: any) => rest);
 
     return res.status(200).json(sanitized);

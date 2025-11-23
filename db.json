@@ -18,9 +18,9 @@
 			"id": 2,
 			"user_id": "7995a9ff-3869-4d77-9db5-53e2dd3bc63a",
 			"image": "Link do Gato",
-			"dog_name": "Gorda",
-			"dog_age": 2,
-			"dog_weight": 10,
+			"animal_name": "Gordinha",
+			"animal_age": 2,
+			"animal_weight": 10,
 			"comments": [
 				{
 					"comment_id": "5182deb4-c95b-4a22-8353-b2ff949944bc",
