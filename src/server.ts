@@ -13,6 +13,7 @@ import commentPostController from "./controllers/comments/commentPostController"
 import photoCreateController from "./controllers/photos/photoCreateController"; // POST /photo
 import photoDeleteController from "./controllers/photos/photoDeleteController"; // DELETE /photo/:id
 import photoGetController from "./controllers/photos/photoGetController"; // GET /photo/
+import userProfileController from "./controllers/users/userProfileController";
 
 const databasePath = "db.json";
 const server = jsonServer.create();
@@ -35,9 +36,10 @@ server.post("/user", registerController);
 
 // --- 2. ROTAS PÚBLICAS (GET) ---
 
-// Busca/Listagem de Fotos (PHOTOS_GET, PHOTO_GET)
+// Busca/Listagem de Fotos (PHOTO_GET, PHOTOS_GET, PROFILE_PHOTOS_GET)
 server.get("/photo/:id", photoGetController);
 server.get("/photo", photoGetController);
+server.get("/profile/:username", userProfileController)
 
 // --- 3. MURO DE AUTENTICAÇÃO ---
 server.use(authMiddleware);
