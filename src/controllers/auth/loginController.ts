@@ -7,7 +7,7 @@ export default async function loginController(req: any, res: any) {
 
   if (!username || !password) {
     return res.status(400).json({
-      message: "login and password is required.",
+      message: "username and password is required.",
     });
   }
 
@@ -17,7 +17,7 @@ export default async function loginController(req: any, res: any) {
 
   if (!userExists) {
     return res.status(403).json({
-      message: "invalid login or password.",
+      message: "invalid username or password.",
     });
   }
 
@@ -25,7 +25,7 @@ export default async function loginController(req: any, res: any) {
 
   if (!isValidPassword) {
     return res.status(403).json({
-      message: "invalid login or password.",
+      message: "invalid username or password.",
     });
   }
 
@@ -33,9 +33,10 @@ export default async function loginController(req: any, res: any) {
 
   const loggedUser = {
     token,
-    user_display_name: userExists.display_name,
-    user_nicename: userExists.username,
-    user_email: userExists.email,
+    user: {
+      name: userExists.username,
+      email: userExists.email,
+    },
   };
 
   return res.status(200).json(loggedUser);

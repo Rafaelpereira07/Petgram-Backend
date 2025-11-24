@@ -1,4 +1,17 @@
 {
-  "users": [],
-  "photos": []
+	"users": [
+		{
+			"id": "f5125399-c595-4340-ac90-57ecae22ef7e",
+			"username": "Bueno",
+			"email": "bueno@email.com",
+			"password": "$2b$08$9ZNUuLgq5XBlxohpDhxAu.pedVm4y84.KpoKPcHwrrqzXzH3j3n7S"
+		},
+		{
+			"id": "34498eda-1e4d-4074-b93c-26756a3e4b59",
+			"username": "Rafael",
+			"email": "rafael",
+			"password": "$2b$08$JjNN2sn3aQzxgFoPMJrwLOAyhzWrfeUbE/w44bWvqWKR7FJ4vOrc6"
+		}
+	],
+	"photos": []
 }
